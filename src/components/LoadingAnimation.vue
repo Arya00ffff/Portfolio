@@ -33,12 +33,12 @@ onMounted(() => {
         clearInterval(intervalId)
 
         setTimeout(() => {
-          preloaderHidden.value = true // Start transition
+          preloaderHidden.value = true // Start scroll down transition
 
           // After transition ends, remove the preloader
           setTimeout(() => {
             loading.value = false
-          }, 600) // match with CSS transition duration
+          }, 800) // match with CSS transition duration
         }, pauseDuration)
       }
     }, intervalDuration)
@@ -50,11 +50,7 @@ onUnmounted(() => {
 })
 </script>
 
-
-
-
 <template>
-  <div>
     <div
       v-if="loading"
       :class="['preloader', { 'preloader-hidden': preloaderHidden }]"
@@ -63,29 +59,25 @@ onUnmounted(() => {
         <h1>{{ currentHello }}</h1>
       </div>
     </div>
-  </div>
 </template>
 
-
 <style scoped>
-
 .preloader {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: #19191b;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  transition: transform 0.6s ease, opacity 0.6s ease;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .preloader-hidden {
-  transform: translateY(-100%);
-  opacity: 0;
+  transform: translateY(-100vh);
 }
 
 .loader-content {
@@ -96,5 +88,7 @@ onUnmounted(() => {
 
 .loader-content h1 {
   font-size: 3rem;
+  margin: 0;
 }
+
 </style>
