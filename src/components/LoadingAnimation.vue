@@ -4,6 +4,9 @@ import { ref, onMounted, onUnmounted } from 'vue'
 const loading = ref(true)
 const preloaderHidden = ref(false)
 
+// Emit event to parent when animation starts
+const emit = defineEmits(['animationStart'])
+
 const hellos = [
   'hello!',
   'hallo!',
@@ -34,6 +37,7 @@ onMounted(() => {
 
         setTimeout(() => {
           preloaderHidden.value = true // Start scroll down transition
+          emit('animationStart') // Notify parent that slide animation has started
 
           // After transition ends, remove the preloader
           setTimeout(() => {
@@ -90,5 +94,4 @@ onUnmounted(() => {
   font-size: 3rem;
   margin: 0;
 }
-
 </style>

@@ -5,43 +5,54 @@ import LightMode from './LightMode.vue'
 import { ref } from 'vue'
 
 const isLightMode = ref(false)
+const contentVisible = ref(false)
 
 function toggleLightMode() {
   isLightMode.value = !isLightMode.value
   document.body.classList.toggle('light-mode', isLightMode.value)
 }
+
+function handleAnimationStart() {
+  contentVisible.value = true
+}
 </script>
 
 <template>
-  <LoadingAnimation />
+  <LoadingAnimation @animationStart="handleAnimationStart" />
   <Background />
-  <div class="row-center">
-    <div class="left">
-      <h3>It's a me! Arya!</h3>
-      
+  <div :class="['main-content', { 'content-slide-up': contentVisible }]">
+    <div class="row-center">
+      <div class="left">
+        <h3>It's a me! Arya!</h3>
+      </div>
+      <div class="right">
+        <LightMode @toggleLightMode="toggleLightMode" />
+      </div>
     </div>
-    <div class="right">
-      <LightMode @toggleLightMode="toggleLightMode" />
-    </div>
-  </div>
-  <div class="image-row">
-    <img src="@/assets/arya.png" alt="Arya's Avatar" height="480" width="347" class="bunnyPic"/>
-    <div class="image-text">
-      <h3>I'm Arya! , and I like </h3>
-<h1 style="font-size: 70px;">
-  Building pixel-perfect<br>
-  <span :class="isLightMode ? 'gay-gradient-text' : 'trans-gradient-text'">Interactive</span> apps🌈
-</h1>
-
-
-
-      <h2>Web-Devloper</h2>
-      
+    <div class="image-row">
+      <img src="@/assets/arya.png" alt="Arya's Avatar" height="480" width="347" class="bunnyPic"/>
+      <div class="image-text">
+        <h3>I'm Arya! , and I like </h3>
+        <h1 style="font-size: 70px;">
+          Building pixel-perfect<br>
+          <span :class="isLightMode ? 'gay-gradient-text' : 'trans-gradient-text'">Interactive</span> apps🌈
+        </h1>
+        <h2>Web-Developer</h2>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+.main-content {
+  transform: translateY(100vh);
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.content-slide-up {
+  transform: translateY(0);
+}
+
 .row-center {
   position: absolute;
   left: 0;
@@ -59,11 +70,13 @@ function toggleLightMode() {
 .right {
   margin-right: 20vw;
 }
+
 .bunnyPic{
   margin-left: 19.5vw;
   margin-top: 10vh;
   border-radius: 5px;
 }
+
 .image-row {
   display: flex;
   flex-direction: row;
@@ -74,6 +87,7 @@ function toggleLightMode() {
   margin-left: 3vw;
   margin-bottom: 0vh;
 }
+
 .trans-gradient-text {
   font-size: 70px;
   font-weight: bold;
@@ -82,6 +96,7 @@ function toggleLightMode() {
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }
+
 .gay-gradient-text {
   font-weight: bold;
   background: linear-gradient(
