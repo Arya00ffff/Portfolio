@@ -23,7 +23,7 @@ function handleAnimationStart() {
   <div :class="['main-content', { 'content-slide-up': contentVisible }]">
     <div class="row-center">
       <div class="left">
-        <h3>It's a me! Arya!</h3>
+        <h1 style="font-size: 18px; font-weight: bold;">It's a me! Arya!</h1>
       </div>
       <div class="right">
         <LightMode @toggleLightMode="toggleLightMode" />
@@ -32,12 +32,26 @@ function handleAnimationStart() {
     <div class="image-row">
       <img src="@/assets/arya.png" alt="Arya's Avatar" height="480" width="347" class="bunnyPic"/>
       <div class="image-text">
-        <h3>I'm Arya! , and I like </h3>
+        <h3 style="font-size: 25px; font-weight: 500;position: relative; bottom: -40px;">I'm Arya! , and I like </h3>
         <h1 style="font-size: 70px;">
           Building pixel-perfect<br>
           <span :class="isLightMode ? 'gay-gradient-text' : 'trans-gradient-text'">Interactive</span> apps🌈
         </h1>
         <h2>Web-Developer</h2>
+        <br><br>
+        <div class="icon-row">
+
+          <a href="https://www.linkedin.com/">
+            <i class="fa-brands fa-linkedin linkdin" ></i>  
+          </a>
+          <a href="http://github.com/arya00ffff/">
+          <i class="fa-brands fa-github github"></i>
+          </a>
+          <a href="mailto:arya@gmail.com">
+            <i class="fa-regular fa-envelope email" ></i> 
+          </a>
+          <i class="fa-brands fa-telegram telegram"></i>
+        </div>
       </div>
     </div>
   </div>
@@ -93,6 +107,7 @@ function handleAnimationStart() {
   font-weight: bold;
   background: linear-gradient(to right, #5BCEFA, #F5A9B8, #FFFFFF, #F5A9B8, #5BCEFA);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }
@@ -109,7 +124,52 @@ function handleAnimationStart() {
     #86007D  /* Violet */
   );
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
+}
+.icon-row {
+  display: flex;
+  gap: 16px; 
+  align-items: center;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.linkdin {
+  color: #bae6fd;
+}
+.linkdin:hover {
+  color: #0072B1;
+}
+.light-mode .linkdin{
+  color: #0385c7;
+}
+.light-mode .linkdin:hover{
+  color:#065885;
+}
+.github {
+color: #f0f6fc;
+}
+.github:hover {
+  color: #333;
+}
+.light-mode .github{
+  color: black;
+}
+.light-mode .github:hover{
+  color: #333;
+}
+.email{
+  color: #de5143;
+}
+.email:hover{
+  color:#b04336;
+}
+.telegram{
+  color:#24b3de;
+}
+.telegram:hover{
+  color:#24A1DE;
 }
 </style>
