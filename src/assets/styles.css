@@ -13,7 +13,7 @@ body{
 
 .light-mode {
 
-  background-color: white;
+  background-color: #f4f5f4;
   color : black;
 }
 body.light-mode button{

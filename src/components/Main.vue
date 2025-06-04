@@ -15,6 +15,7 @@ function toggleLightMode() {
 
 function handleAnimationStart() {
   contentVisible.value = true
+  window.scrollTo(0, 0) 
 }
 </script>
 
@@ -41,12 +42,11 @@ function handleAnimationStart() {
         <h2>Web-Developer</h2>
         <br><br>
         <div class="icon-row">
-
           <a href="https://www.linkedin.com/">
             <i class="fa-brands fa-linkedin linkdin" ></i>  
           </a>
           <a href="http://github.com/arya00ffff/">
-          <i class="fa-brands fa-github github"></i>
+            <i class="fa-brands fa-github github"></i>
           </a>
           <a href="mailto:arya@gmail.com">
             <i class="fa-regular fa-envelope email" ></i> 
@@ -55,7 +55,12 @@ function handleAnimationStart() {
         </div>
       </div>
     </div>
+
+    <div class="career-container">
+      <h1 style="text-align: center; margin-top: 70px; margin-bottom: 250px;">Career</h1>
+      <h3 style="text-align: center;">one day ill fill this out</h3>
+    </div>
+    <div> more stuff</div>
   </div>
-<div class="career-container"></div>
 </template>
 
