@@ -1,28 +1,23 @@
 <template>
   <div class="timeline-container">
     <div class="timeline-line"></div>
-    <div class="timeline-fade"></div>
+
     <div
-      v-for="(entry, index) in timeline"
+      v-for="({ year, duration, title, industry, location, description, tags}, index) in timeline"
       :key="index"
       class="timeline-entry"
-      :class="{
-        'left': index % 2 === 0,
-        'right': index % 2 !== 0
-      }"
+      :class="index % 2 === 0 ? 'left' : 'right'"
     >
       <div class="timeline-content">
         <div class="timeline-year">
-          <h2>{{ entry.year }} <span>{{ entry.duration }}</span></h2>
+          <h2>{{ year }} <span>{{ duration }}</span></h2>
         </div>
-        <h3 class="timeline-title">{{ entry.title }}</h3>
-        <p class="industry">{{ entry.industry }} • {{ entry.location }}</p>
-        <p class="description">{{ entry.description }}</p>
-        <ul>
-          <li v-for="(point, i) in entry.points" :key="i">{{ point }}</li>
-        </ul>
+        <h3 class="timeline-title">{{ title }}</h3>
+        <p class="industry">{{ industry }} • {{ location }}</p>
+        <p class="description">{{ description }}</p>
+
         <div class="tags">
-          <span v-for="(tag, j) in entry.tags" :key="j" class="tag">{{ tag }}</span>
+          <span v-for="(tag, j) in tags" :key="j" class="tag">{{ tag }}</span>
         </div>
       </div>
     </div>
@@ -40,11 +35,7 @@ const timeline = ref([
     industry: 'Automotive Industry',
     location: 'Germany',
     description: 'Currently in vocational training while developing digital tools and applications for the automotive industry.',
-    points: [
-      'Leading development team of 3 engineers',
-      'Developed simulation software for industrial screw controllers',
-      'Implemented AI-driven solutions for management systems'
-    ],
+
     tags: ['C#', 'Python', 'TensorFlow']
   },
   {
@@ -54,13 +45,7 @@ const timeline = ref([
     industry: 'Realschule',
     location: 'Germany',
     description: 'Completed school education with focus on technical subjects.',
-    points: [
-      'Specialised in technical and IT courses',
-      "Participated in Harvard’s CS50x online computer science program",
-      'Developed strong interest in cybersecurity',
-      'Active participant in HackTheBox challenges',
-      'Completed with strong academic performance'
-    ],
+
     tags: ['Math', 'Physics', 'Chemistry', 'IT']
   },
   {
@@ -70,11 +55,7 @@ const timeline = ref([
     industry: 'Grundschule',
     location: 'Germany',
     description: 'Started my educational journey with early exposure to technology',
-    points: [
-      'First introduction to computers and technology',
-      'Developed early interest in programming',
-      'Built foundation for future technical education'
-    ],
+
     tags: ['Math', 'Basic Computing', 'Problem Solving']
   }
 ]);
@@ -83,14 +64,19 @@ const timeline = ref([
 <style scoped>
 .timeline-container {
   position: relative;
-  background-color: #0d0d0d;
-  padding: 6rem 2rem;
+  background-color: #19181a;
   color: #fff;
   font-family: 'Segoe UI', sans-serif;
+  padding: 6rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+}
+
+.light-mode .timeline-container {
+  background-color: #fbfafb;
+  color: #0d0d0d;
 }
 
 .timeline-line {
@@ -105,24 +91,12 @@ const timeline = ref([
   z-index: 0;
 }
 
-.timeline-fade {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 100%;
-  height: 80px;
-  background: linear-gradient(to bottom, rgba(13,13,13,0) 0%, #0d0d0d 100%);
-  transform: translateX(-50%);
-  z-index: 1;
-}
-
 .timeline-entry {
-  position: relative;
   width: 100%;
   max-width: 1000px;
-  display: flex;
-  justify-content: flex-start;
   padding: 2rem 0;
+  display: flex;
+  position: relative;
   z-index: 2;
 }
 
@@ -142,7 +116,6 @@ const timeline = ref([
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 0 20px rgba(255, 0, 128, 0.2);
   max-width: 460px;
-  position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -205,6 +178,11 @@ const timeline = ref([
   color: #ddd;
 }
 
+.light-mode .description,
+.light-mode .industry {
+  color: #0d0d0d;
+}
+
 ul {
   list-style-type: '→ ';
   padding-left: 1.5rem;
@@ -231,11 +209,6 @@ ul {
   .timeline-entry {
     justify-content: center !important;
     text-align: center;
-  }
-
-  .timeline-entry.left,
-  .timeline-entry.right {
-    justify-content: center !important;
   }
 
   .timeline-content {

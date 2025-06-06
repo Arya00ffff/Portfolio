@@ -6,6 +6,7 @@ import Skills from './Skills.vue'
 import Career from './Career.vue'
 import '@/assets/Main.css'
 import { ref } from 'vue'
+import Iconrow from './iconrow.vue'
 
 const isLightMode = ref(false)
 const contentVisible = ref(false)
@@ -27,7 +28,7 @@ function handleAnimationStart() {
   <div :class="['main-content', { 'content-slide-up': contentVisible }]">
     <div class="row-center">
       <div class="left">
-        <h1 style="font-size: 18px; font-weight: bold;">It's a me! Arya!</h1>
+        <h1 style="font-size: 18px; font-weight: bold;"> <i class="fa-solid fa-location-dot" style="margin-right: 6px;"></i>Germany, Berlin</h1>
       </div>
       <div class="right">
         <LightMode @toggleLightMode="toggleLightMode" />
@@ -43,24 +44,12 @@ function handleAnimationStart() {
         </h1>
         <h2>Web-Developer</h2>
         <br><br>
-        <div class="icon-row">
-          <a href="https://www.linkedin.com/">
-            <i class="fa-brands fa-linkedin linkdin" ></i>  
-          </a>
-          <a href="http://github.com/arya00ffff/">
-            <i class="fa-brands fa-github github"></i>
-          </a>
-          <a href="mailto:arya@gmail.com">
-            <i class="fa-regular fa-envelope email" ></i> 
-          </a>
-          <i class="fa-brands fa-telegram telegram"></i>
-        </div>
+        <Iconrow />
       </div>
     </div>
 
     <div class="career-container">
-      <h1 style="text-align: center; margin-top: 70px; margin-bottom: 250px;">Career</h1>
-      <h3 style="text-align: center;">one day ill fill this out</h3>
+      <h1 style="text-align: center; margin-top: 70px;">Career</h1>
       <Career />
     </div>
     <div> 
@@ -70,7 +59,7 @@ function handleAnimationStart() {
     
   </div>
   <div class="footer">
-      <p>© 2024 Arya. All rights reserved.</p>
+      <p>© 2025 Arya. All rights reserved.</p>
     </div>
 </template>
 
