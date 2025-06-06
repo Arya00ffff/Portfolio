@@ -30,30 +30,30 @@ import { ref } from 'vue';
 const timeline = ref([
   {
     year: '2023',
-    duration: '1 year',
+    duration: '2 years',
     title: 'Junior Full Stack Developer',
-    industry: 'Automotive Industry',
-    location: 'Germany',
-    description: 'Currently in vocational training while developing digital tools and applications for the automotive industry.',
+    industry: 'Website Design',
+    location: 'Iran',
+    description: 'Worked with a small company to deisgn and create websites for coustuomers.',
 
-    tags: ['C#', 'Python', 'TensorFlow']
+    tags: ['WordPress', 'PHP', 'JavaScript','CSS']
   },
   {
-    year: '2017',
-    duration: '6 years',
+    year: '2023',
+    duration: '2 years',
     title: 'Student',
-    industry: 'Realschule',
-    location: 'Germany',
-    description: 'Completed school education with focus on technical subjects.',
+    industry: 'University',
+    location: 'Iran',
+    description: 'Studying computer Enginering in Eqbal University of Mashhad',
 
-    tags: ['Math', 'Physics', 'Chemistry', 'IT']
+    tags: ['Math', 'Physics', 'C++', 'Java']
   },
   {
-    year: '2013',
-    duration: '4 years',
+    year: '2020',
+    duration: '3 years',
     title: 'Student',
-    industry: 'Grundschule',
-    location: 'Germany',
+    industry: 'HighSchool',
+    location: 'Iran',
     description: 'Started my educational journey with early exposure to technology',
 
     tags: ['Math', 'Basic Computing', 'Problem Solving']
@@ -203,6 +203,23 @@ ul {
   font-size: 0.75rem;
   color: white;
   box-shadow: 0 0 10px rgba(255, 0, 128, 0.4);
+}
+
+.timeline-entry:nth-child(2) .timeline-year h2 {
+  color: #11b680;
+  text-shadow: 0 0 20px #11b680;
+}
+.timeline-entry:nth-child(3) .timeline-year h2 {
+  color: #06b7d5;
+  text-shadow: 0 0 20px #06b7d5;
+}
+.timeline-entry:nth-child(4) .timeline-year h2 {
+  color: #4f45e3;
+  text-shadow: 0 0 20px #4f45e3;
+}
+
+.light-mode .timeline-year h2 {
+  text-shadow: 0 0 4px rgba(0,0,0,0.08);
 }
 
 @media screen and (max-width: 768px) {
