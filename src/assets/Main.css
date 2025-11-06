@@ -43,9 +43,9 @@
   margin-bottom: 0vh;
 }
 
-/* Base heading styles for the intro area (desktop defaults) */
+
 .image-text h3 {
-  font-size: 25px;
+  font-size: 30px;
   font-weight: 500;
   margin: 0 0 0.5rem 0;
   position: relative;
@@ -132,10 +132,11 @@
     left: auto;
     width: auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: row; 
+    flex-wrap: wrap; 
     align-items: center;
-    justify-content: center;
-    gap: 1.25rem;
+    justify-content: space-between;
+    gap: 1rem;
     padding: 0 4vw;
   }
 
@@ -190,7 +191,6 @@
 @media (max-width: 480px) {
   .image-text h1 { font-size: 32px; line-height: 1.05; }
   .trans-gradient-text, .gay-gradient-text { font-size: inherit; background-size: 100% 100%; }
-  .bunnyPic { max-width: 90vw; }
   .row-center { padding: 0 3vw; }
   .career-container { margin-top: 60px; padding: 12px; }
   .footer { padding: 16px 8px; font-size: 0.9rem; }
@@ -198,12 +198,13 @@
 
 
 @media (max-width: 900px) {
+   .bunnyPic { display: none; }
   .image-text h3 {
     position: static;
     bottom: auto;
     transform: none;
     margin: 0 0 0.5rem 0;
-    font-size: 1rem;
+    font-size: 25px;
     line-height: 1.2;
   }
 
@@ -218,9 +219,54 @@
     bottom: auto;
     transform: none;
     margin: 0 0 0.35rem 0;
-    font-size: 0.95rem;
+    font-size: 25px;
     line-height: 1.15;
   }
 
   .image-text h1 { margin-top: 0; }
+}
+
+/* Medium screens between desktop and tablet: 901px - 1300px
+   Improve spacing and scale the hero so text and image share space nicely. */
+@media (min-width: 901px) and (max-width: 1300px) {
+  .row-center {
+    position: relative;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 6vw;
+  }
+
+  /* Reduce extreme side margins used on very large screens */
+  .left { margin-left: 12vw; }
+  .right { margin-right: 12vw; }
+
+  /* Make the avatar smaller so it and the headings fit side-by-side */
+  .bunnyPic {
+    margin-left: 6vw;
+    margin-top: 6vh;
+    max-width: 36%;
+    width: auto;
+    height: auto;
+    border-radius: 6px;
+  }
+
+  .image-row { gap: 2rem; }
+
+  .image-text { margin-left: 1.25rem; margin-top: 0; }
+
+  /* Scale headings: keep them large but not massive */
+  .image-text h3 { font-size: 20px; margin-bottom: 0.35rem; position: static; bottom: auto; }
+  .image-text h1 { font-size: 50px; line-height: 1.03; }
+  .image-text h2 { font-size: 1.25rem; }
+
+  /* Gradient spans should scale with the heading */
+  .trans-gradient-text, .gay-gradient-text { font-size: inherit; }
+
+  /* Slightly reduce footer/career container offsets so they don't look far apart */
+  .career-container { margin-top: 64px; }
+  .footer { padding: 28px 0 20px 0; }
 }
