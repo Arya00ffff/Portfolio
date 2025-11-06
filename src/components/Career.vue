@@ -82,6 +82,13 @@ const timeline = ref([
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+  /* Make container span the full viewport width without introducing horizontal
+     scroll. Use left/transform centering which avoids issues with scrollbars
+     and parent padding that can leave gaps on mobile. */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  box-sizing: border-box;
 }
 
 .light-mode .timeline-container {
@@ -233,13 +240,51 @@ ul {
 }
 
 @media screen and (max-width: 768px) {
+  /* Make container flush on small screens */
+  .timeline-container {
+    padding: 3rem 1rem;
+  }
+
+  /* Move the vertical line to the left edge and ensure the dark
+     background spans the full width so page background doesn't show through */
+  .timeline-line {
+    left: 1rem;
+    transform: none;
+  }
+
+  /* Stack entries to the right of the line and make content take full width */
   .timeline-entry {
-    justify-content: center !important;
-    text-align: center;
+    justify-content: flex-start !important;
+    padding-left: 3rem;
+    text-align: left;
   }
 
   .timeline-content {
-    margin-top: 2rem;
+    max-width: none;
+    width: calc(100% - 4rem);
+    margin-top: 0;
+    background: rgba(255,255,255,0.03); /* keep slight translucency but container is dark so no gaps */
+    box-shadow: none; /* reduce glow on small screens for clarity */
+    border: none;
+    border-radius: 0.75rem;
   }
+
+  .timeline-year h2 { font-size: 1.5rem; }
+  .timeline-title { font-size: 1.1rem; }
+  .description { font-size: 0.95rem; line-height: 1.4; }
+  .industry { font-size: 0.8rem; }
+
+  .tags { gap: 0.35rem; }
+  .tag { padding: 0.25rem 0.5rem; font-size: 0.7rem; }
+}
+
+@media screen and (max-width: 480px) {
+  .timeline-container { padding: 2rem 0.5rem; }
+  .timeline-line { left: 0.75rem; }
+  .timeline-entry { padding-left: 2.25rem; }
+  .timeline-content { width: calc(100% - 3rem); padding: 1rem; }
+  .timeline-year h2 { font-size: 1.25rem; }
+  .timeline-title { font-size: 1rem; }
+  .description { font-size: 0.85rem; }
 }
 </style>

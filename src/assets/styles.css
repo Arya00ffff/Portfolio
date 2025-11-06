@@ -26,3 +26,16 @@ body.light-mode button{
 body.light-mode #container {
   background-image: radial-gradient(circle at 50% 50%, #e0e9f2 60%, #c3d4f0 100%);
 }
+
+
+@media (max-width: 100px) {
+  html { font-size: 15px; }
+  body { padding-left: 4vw; padding-right: 4vw; }
+  .tile { border-radius: 8px; }
+}
+
+@media (max-width: 480px) {
+  html { font-size: 14px; }
+  
+  .trans-gradient-text, .gay-gradient-text { word-break: break-word; }
+}

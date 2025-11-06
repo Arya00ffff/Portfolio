@@ -57,12 +57,12 @@
   font-weight: bold;
   background: linear-gradient(
     to right,
-    #FF0018, /* Red */
-    #FFA52C, /* Orange */
-    #f5df14, /* Yellow */
-    #008018, /* Green */
-    #0000F9, /* Blue */
-    #86007D  /* Violet */
+    #FF0018, 
+    #FFA52C, 
+    #f5df14, 
+    #008018, 
+    #0000F9,
+    #86007D  
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -72,15 +72,15 @@
 
 .career-container {
   margin-top: 108px;
-  width: 100vw;           /* Ensure it covers the viewport width */
-  margin-left: calc(-50vw + 50%); /* Remove any parent padding/margin centering */
+  width: 100vw;           
+  margin-left: calc(-50vw + 50%);
   background-color: #19181a;
   border-top: 2px solid #e2e9f1;
   border-bottom: 2px solid #e2e9f1;
   box-sizing: border-box;
-  max-height: none;       /* Remove max-height to allow full expansion */
-  overflow: visible;      /* No scroll, expands with content */
-  padding: 0;             /* Remove padding if you want edge-to-edge */
+  max-height: none;       
+  overflow: visible;      
+  padding: 0;             
 }
 .light-mode .career-container{
     background-color: #fbfafb;
@@ -108,4 +108,84 @@
   border-top: 2px solid #19181a;
   font-size: 1rem;
   letter-spacing: 0.05em;
+}
+
+
+@media (max-width: 900px) {
+  .row-center {
+    position: relative;
+    left: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    padding: 0 4vw;
+  }
+
+  .left,
+  .right {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .bunnyPic{
+    margin-left: 0;
+    margin-top: 4vh;
+    max-width: 70vw;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .image-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-text {
+    margin-left: 0;
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .trans-gradient-text {
+    font-size: 40px;
+    line-height: 1.1;
+    text-align: center;
+    padding: 0 2vw;
+    word-break: break-word;
+  }
+
+  .gay-gradient-text {
+    font-size: 28px;
+    display: block;
+    text-align: center;
+  }
+
+  .career-container {
+    margin-top: 80px;
+    padding: 16px;
+    width: 100%;
+    margin-left: 0;
+    box-sizing: border-box;
+  }
+
+  .footer {
+    padding: 20px 12px;
+    font-size: 0.95rem;
+    text-align: center;
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .trans-gradient-text { font-size: 32px; }
+  .gay-gradient-text { font-size: 22px; }
+  .bunnyPic { max-width: 90vw; }
+  .row-center { padding: 0 3vw; }
+  .career-container { margin-top: 60px; padding: 12px; }
+  .footer { padding: 16px 8px; font-size: 0.9rem; }
 }
