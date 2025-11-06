@@ -43,6 +43,21 @@
   margin-bottom: 0vh;
 }
 
+/* Base heading styles for the intro area (desktop defaults) */
+.image-text h3 {
+  font-size: 25px;
+  font-weight: 500;
+  margin: 0 0 0.5rem 0;
+  position: relative;
+  bottom: -40px;
+}
+
+.image-text h1 {
+  font-size: 70px;
+  margin: 0;
+  line-height: 1.02;
+}
+
 .trans-gradient-text {
   font-size: 70px;
   font-weight: bold;
@@ -150,19 +165,10 @@
     text-align: center;
   }
 
-  .trans-gradient-text {
-    font-size: 40px;
-    line-height: 1.1;
-    text-align: center;
-    padding: 0 2vw;
-    word-break: break-word;
-  }
 
-  .gay-gradient-text {
-    font-size: 28px;
-    display: block;
-    text-align: center;
-  }
+  .image-text h1 { font-size: 40px; line-height: 1.05; }
+  .trans-gradient-text, .gay-gradient-text { font-size: inherit; display: inline-block; background-size: 100% 100%; }
+  .image-text { text-align: center; }
 
   .career-container {
     margin-top: 80px;
@@ -182,10 +188,39 @@
 }
 
 @media (max-width: 480px) {
-  .trans-gradient-text { font-size: 32px; }
-  .gay-gradient-text { font-size: 22px; }
+  .image-text h1 { font-size: 32px; line-height: 1.05; }
+  .trans-gradient-text, .gay-gradient-text { font-size: inherit; background-size: 100% 100%; }
   .bunnyPic { max-width: 90vw; }
   .row-center { padding: 0 3vw; }
   .career-container { margin-top: 60px; padding: 12px; }
   .footer { padding: 16px 8px; font-size: 0.9rem; }
+}
+
+
+@media (max-width: 900px) {
+  .image-text h3 {
+    position: static;
+    bottom: auto;
+    transform: none;
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+
+  .image-text h1 {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-text h3 {
+    position: static;
+    bottom: auto;
+    transform: none;
+    margin: 0 0 0.35rem 0;
+    font-size: 0.95rem;
+    line-height: 1.15;
+  }
+
+  .image-text h1 { margin-top: 0; }
 }

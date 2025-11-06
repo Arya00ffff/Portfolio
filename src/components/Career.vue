@@ -82,9 +82,7 @@ const timeline = ref([
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-  /* Make container span the full viewport width without introducing horizontal
-     scroll. Use left/transform centering which avoids issues with scrollbars
-     and parent padding that can leave gaps on mobile. */
+
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
@@ -240,19 +238,17 @@ ul {
 }
 
 @media screen and (max-width: 768px) {
-  /* Make container flush on small screens */
+ 
   .timeline-container {
     padding: 3rem 1rem;
   }
 
-  /* Move the vertical line to the left edge and ensure the dark
-     background spans the full width so page background doesn't show through */
   .timeline-line {
     left: 1rem;
     transform: none;
   }
 
-  /* Stack entries to the right of the line and make content take full width */
+  
   .timeline-entry {
     justify-content: flex-start !important;
     padding-left: 3rem;
@@ -263,8 +259,8 @@ ul {
     max-width: none;
     width: calc(100% - 4rem);
     margin-top: 0;
-    background: rgba(255,255,255,0.03); /* keep slight translucency but container is dark so no gaps */
-    box-shadow: none; /* reduce glow on small screens for clarity */
+    background: rgba(255,255,255,0.03); 
+    box-shadow: none; 
     border: none;
     border-radius: 0.75rem;
   }

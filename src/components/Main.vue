@@ -37,8 +37,9 @@ function handleAnimationStart() {
     <div class="image-row">
       <img src="@/assets/arya.png" alt="Arya's Avatar" height="480" width="347" class="bunnyPic"/>
       <div class="image-text">
-        <h3 style="font-size: 25px; font-weight: 500;position: relative; bottom: -40px;">I'm Arya, and I like </h3>
-        <h1 style="font-size: 70px;">
+        <h3>I'm Arya, and I like </h3>
+        <br><br>
+        <h1>
           Building pixel-perfect<br>
           <span :class="isLightMode ? 'gay-gradient-text' : 'trans-gradient-text'">Interactive</span> apps🌈
         </h1>

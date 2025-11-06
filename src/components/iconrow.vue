@@ -15,7 +15,7 @@
           <i class="fa-solid fa-file"></i>
 
         </div>
-</template>z
+</template>
 <style scoped >
 .icon-row {
   display: flex;
@@ -61,4 +61,14 @@ color: #f0f6fc;
 .telegram:hover{
   color:#24A1DE;
 }
+@media (max-width: 900px) {
+  .icon-row {
+    justify-content: center;
+    width: 100%;
+    font-size: 32px;
+    gap: 12px;
+    padding: 0.5rem 0; 
+  }
+}
+
 </style>
