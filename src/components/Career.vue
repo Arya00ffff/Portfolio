@@ -34,7 +34,7 @@ const timeline = ref([
     title: 'Student',
     industry: 'University',
     location: 'Germany, Berlin',
-    description: 'Studying computer Science in IU International University of Applied Sciences',
+    description: 'Studying Computer Science in IU International University of Applied Sciences (IU)',
 
     tags: ['Math', 'English', 'German', 'Team building']
   },
@@ -44,7 +44,7 @@ const timeline = ref([
     title: 'Student',
     industry: 'University',
     location: 'Iran',
-    description: 'Studying computer Enginering in Eqbal University of Mashhad',
+    description: 'Studying Computer Enginering in Eqbal University of Mashhad',
 
     tags: ['Math', 'Physics', 'C++', 'Java']
   },
@@ -54,7 +54,7 @@ const timeline = ref([
     title: 'Full Stack Developer',
     industry: 'Website Design',
     location: 'Iran',
-    description: 'Worked with a company to deisgn and create websites for coustuomers.',
+    description: 'Worked with a company to design and create websites for customers.',
 
     tags: ['WordPress', 'PHP', 'JavaScript','CSS']
   },
@@ -62,9 +62,9 @@ const timeline = ref([
     year: '2020',
     duration: '3 years',
     title: 'Student',
-    industry: 'HighSchool',
+    industry: 'High School',
     location: 'Iran',
-    description: 'Started my educational journey with early exposure to technology',
+    description: 'Started my educational journey with early exposure to technology.',
 
     tags: ['Math', 'Basic Computing', 'Problem Solving']
   }
